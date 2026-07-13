@@ -16,7 +16,7 @@ def home(request):
         return redirect('home')
 
     skills = Skill.objects.all()
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by('-id')
     experiences = Experience.objects.all().order_by('-id')
     
     total_projects = projects.count()
