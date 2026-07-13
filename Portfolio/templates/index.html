@@ -236,6 +236,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% for project in projects %}
+            <div style="background: red; color: white;">DEBUG: {{ project.title }} | Link: {{ project.live_link }}</div>
             <div class="project-card bg-card-bg rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] border border-transparent transition-all duration-300" data-category="{{ project.category }}">
                 
                 <div class="h-64 bg-gray-800 relative flex justify-center items-center border-b border-gray-700">
