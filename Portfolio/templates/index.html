@@ -1,0 +1,430 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashish Kumar Yadav | AI/ML Engineer</title>
+    
+    <link rel="icon" type="image/svg+xml" href="{% static 'favicon.svg' %}">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <style type="text/tailwindcss">
+        @theme {
+            --color-dark-bg: #121212;
+            --color-card-bg: #1a1a1a;
+            --color-neural-purple: #A855F7;
+            --color-neural-purple-light: #C084FC;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-white font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full top-0 z-50 bg-[#121212]/90 backdrop-blur-md border-b border-gray-800 transition-all">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center h-20">
+            
+            <div class="flex-1 flex justify-start">
+                <a href="#home" class="text-2xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-neural-purple to-neural-purple-light">
+                    ASHISH.DEV
+                </a>
+            </div>
+
+            <div class="hidden md:flex flex-none space-x-10 text-sm font-bold text-gray-400 tracking-wide">
+                <a href="#home" class="hover:text-neural-purple transition-colors">Home</a>
+                <a href="#about" class="hover:text-neural-purple transition-colors">About</a>
+                <a href="#experience" class="hover:text-neural-purple transition-colors">Experience</a>
+                <a href="#portfolio" class="hover:text-neural-purple transition-colors">Portfolio</a>
+                <a href="#services" class="hover:text-neural-purple transition-colors">Services</a>
+            </div>
+
+            <div class="flex-1 flex justify-end">
+                <a href="#contact" class="bg-neural-purple hover:bg-neural-purple-light text-white px-8 py-2.5 rounded-lg font-bold transition-all shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] hover:-translate-y-0.5">
+                    Hire Me
+                </a>
+            </div>
+            
+        </div>
+    </nav>
+
+    <section id="home" class="scroll-mt-20 max-w-7xl mx-auto px-6 pt-40 pb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-screen">
+        
+        <div class="flex flex-col justify-center z-10">
+            <p class="text-gray-400 text-lg font-medium tracking-wide mb-3 uppercase flex items-center gap-3">
+                <span class="w-8 h-[2px] bg-neural-purple"></span>
+                Hi, I am Ashish Kumar Yadav
+            </p>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">
+                AI/ML Engineer <span class="text-gray-600 font-light text-5xl md:text-6xl">&</span> <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-neural-purple to-neural-purple-light drop-shadow-sm">
+                    Full-Stack Developer
+                </span>
+            </h1>
+            
+            <div class="flex flex-wrap gap-5 mt-6 mb-14">
+                <a href="#contact" class="bg-neural-purple hover:bg-neural-purple-light text-white px-8 py-3.5 rounded-lg font-bold transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:-translate-y-1 text-center">
+                    Hire Me
+                </a>
+                <a href="{% static 'CV.pdf' %}" class="border-2 border-gray-700 hover:border-neural-purple hover:text-neural-purple text-gray-300 px-8 py-3.5 rounded-lg font-bold transition-all hover:-translate-y-1 bg-[#121212]/50 backdrop-blur-sm text-center">
+                    Download CV
+                </a>
+            </div>
+
+            <div class="bg-card-bg/80 backdrop-blur-md rounded-2xl p-8 flex items-center justify-between border border-gray-800 hover:border-gray-700 transition-colors w-max gap-12 shadow-2xl relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-r from-neural-purple/0 via-neural-purple/5 to-neural-purple/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                
+                <div class="relative z-10 text-center">
+                    <h3 class="text-3xl font-extrabold text-white mb-1 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">{{ total_hackathons }}+</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Hackathons</p>
+                </div>
+                <div class="w-px h-12 bg-gray-800"></div>
+                
+                <div class="relative z-10 text-center">
+                    <h3 class="text-3xl font-extrabold text-white mb-1 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">{{ total_projects }}+</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Projects Done</p>
+                </div>
+                <div class="w-px h-12 bg-gray-800"></div>
+                
+                <div class="relative z-10 text-center">
+                    <h3 class="text-3xl font-extrabold text-white mb-1 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">100%</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Commitment</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative flex justify-center items-center h-[600px] w-full">
+            
+            <div class="absolute w-96 h-96 bg-neural-purple/20 rounded-full blur-[100px] z-0"></div>
+            
+            <div class="z-10 w-[380px] h-[520px] rounded-t-full rounded-b-3xl relative flex flex-col items-center justify-center group overflow-hidden shadow-2xl">
+                
+                <img src="{% static 'profile.png' %}" alt="Ashish Kumar Yadav" class="absolute inset-0 w-full h-full object-cover rounded-t-full rounded-b-3xl z-20 transition-transform duration-700 group-hover:scale-105">
+                
+                <div class="absolute inset-0 rounded-t-full rounded-b-3xl z-30 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent pointer-events-none"></div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="scroll-mt-20 max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">About Me</h2>
+            <p class="text-gray-500">Artificial Intelligence , Machine Learning & Full Stack Engineer</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+           <div class="flex justify-center w-full">
+                <div class="w-full max-w-[350px] h-[450px] bg-[#0a0a0a] rounded-xl border border-gray-800 shadow-2xl flex flex-col font-mono text-sm overflow-hidden group hover:border-neural-purple/50 transition-colors duration-500">
+                    
+                    <div class="bg-[#1a1a1a] px-4 py-3 border-b border-gray-800 flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        <span class="ml-4 text-xs text-gray-500 font-sans tracking-widest uppercase">ashish.js</span>
+                    </div>
+                    
+                    <div class="p-6 flex-1 text-gray-400 leading-relaxed">
+                        <div class="text-neural-purple mb-2">const developer = {</div>
+                        
+                        <div class="pl-4 mb-2">
+                            <span class="text-white">name:</span> <span class="text-green-400">"Ashish Kumar Yadav"</span>,
+                        </div>
+                        
+                        <div class="pl-4 mb-2">
+                            <span class="text-white">education:</span> <span class="text-green-400">"B.Tech CSE (AI)"</span>,
+                        </div>
+                        
+                        <div class="pl-4 mb-2">
+                            <span class="text-white">focus:</span> <span class="text-green-400">"To develop AI/ML models and full stack web application "</span>,
+                        </div>
+                        
+                        <div class="pl-4 mb-2">
+                            <span class="text-white">location:</span> <span class="text-green-400">"Lucknow, UP"</span>,
+                        </div>
+                        
+                        <div class="pl-4 mb-2">
+                            <span class="text-white">status:</span> <span class="text-yellow-400">"Available for Hire"</span>
+                        </div>
+                        
+                        <div class="text-neural-purple mt-2 mb-6">};</div>
+                        
+                        <div class="flex items-center text-gray-500 mt-auto">
+                            <span class="text-green-400 mr-2">sysadmin@ashish-os ></span> 
+                            <span class="w-2 h-4 bg-gray-400 animate-pulse inline-block"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <p class="text-gray-400 leading-loose mb-8 text-justify">
+                    A software engineer acts as the modern-day architect of digital realms, navigating the ethereal landscapes of code. With fingers poised over keyboards like virtuoso pianists, I compose symphonies of logic, my mind a labyrinth of algorithms. 
+                    <br><br>
+                    Currently pursuing my B.Tech in Computer Science and Engineering with a specialization in Artificial Intelligence at Babu Banarasi Das University, I thrive on building intelligent systems. Whether I am architecting a completely software-based AI engine for circular economy optimization or deploying a full-stack micro-influencer hub, debugging becomes a noble pursuit—unraveling the mysteries hidden within the tangled webs of code.
+                </p>
+                <button class="bg-neural-purple hover:bg-neural-purple-light text-white px-8 py-3 rounded font-semibold transition-all shadow-lg">Download CV</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="scroll-mt-20 max-w-7xl mx-auto px-6 py-20 border-b border-gray-800">
+        <h2 class="text-4xl font-bold mb-16 text-center">Skills</h2>
+        
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+            {% for skill in skills %}
+            <div class="flex flex-col items-center w-40 md:w-48 text-center">
+                <div class="relative w-32 h-32 mb-6">
+                    <svg class="w-full h-full transform -rotate-90">
+                        <circle cx="64" cy="64" r="56" stroke="currentColor" stroke-width="8" fill="transparent" class="text-card-bg" />
+                        <circle cx="64" cy="64" r="56" stroke="currentColor" stroke-width="8" fill="transparent" 
+                                stroke-dasharray="351" 
+                                stroke-dashoffset="calc(351 - (351 * {{ skill.proficiency_percentage }}) / 100)" 
+                                class="text-neural-purple drop-shadow-[0_0_8px_rgba(168,85,247,0.8)] transition-all duration-1000 ease-out" />
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center font-bold text-2xl text-neural-purple-light">
+                        {{ skill.proficiency_percentage }}%
+                    </div>
+                </div>
+                <h4 class="text-white font-medium text-lg leading-snug">{{ skill.name }}</h4>
+            </div>
+            {% empty %}
+            <p class="text-gray-500 text-center w-full">Log into the admin panel to add your tech stack!</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="experience" class="scroll-mt-20 max-w-4xl mx-auto px-6 py-20 border-b border-gray-800">
+        <h2 class="text-4xl font-bold mb-12 text-center">Experience & Journey</h2>
+    
+        <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-700 before:to-transparent">
+        
+            {% for exp in experiences %}
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-bg {% if exp.is_active %}bg-neural-purple{% else %}bg-gray-700 group-hover:bg-neural-purple-light{% endif %} shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow transition-colors z-10"></div>
+            
+                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-card-bg p-8 rounded-xl border border-gray-800 hover:border-neural-purple/50 transition-all shadow-lg group-hover:shadow-[0_0_20px_rgba(168,85,247,0.1)]">
+                    <div class="flex flex-col mb-4">
+                        <h3 class="font-bold text-2xl text-white mb-1 group-hover:text-neural-purple transition-colors">{{ exp.title }}</h3>
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-gray-400 font-semibold tracking-wide uppercase text-sm">{{ exp.organization }}</h4>
+                            <span class="bg-neural-purple/10 text-neural-purple-light px-3 py-1 rounded-full text-xs font-bold border border-neural-purple/20">{{ exp.date_range }}</span>
+                        </div>
+                    </div>
+                
+                <p class="text-gray-500 text-sm leading-relaxed text-justify">{{ exp.description }}</p>
+            </div>
+            </div>
+            {% empty %}
+            <p class="text-center text-gray-500 z-10 relative">Log into admin to add your HAL Lucknow training and Hackathons!</p>
+            {% endfor %}
+        
+        </div>
+    </section>
+
+<section id="portfolio" class="scroll-mt-20 max-w-7xl mx-auto px-6 py-20 mb-20">
+        <h2 class="text-4xl font-bold mb-12 text-center">Portfolio</h2>
+        
+        <div class="flex justify-center flex-wrap gap-4 mb-16">
+            <button class="filter-btn bg-neural-purple text-white px-6 py-2 rounded-md font-medium shadow-md transition-colors" data-filter="all">All</button>
+            <button class="filter-btn bg-card-bg text-gray-400 hover:text-white px-6 py-2 rounded-md font-medium transition-colors" data-filter="ML">AI, ML & DL</button>
+            <button class="filter-btn bg-card-bg text-gray-400 hover:text-white px-6 py-2 rounded-md font-medium transition-colors" data-filter="WEB">Full-Stack Web</button>
+            <button class="filter-btn bg-card-bg text-gray-400 hover:text-white px-6 py-2 rounded-md font-medium transition-colors" data-filter="HACK">Hackathons</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for project in projects %}
+            <div class="project-card bg-card-bg rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] border border-transparent transition-all duration-300" data-category="{{ project.category }}">
+                
+                <div class="h-64 bg-gray-800 relative flex justify-center items-center border-b border-gray-700">
+                    {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-full object-cover">
+                    {% else %}
+                        <span class="text-gray-500 text-sm border border-dashed border-gray-600 p-4 rounded">[ Image for {{ project.title }} ]</span>
+                    {% endif %}
+                </div>
+                
+                <div class="p-6 flex flex-col h-full">
+                    <p class="text-neural-purple text-xs font-bold uppercase tracking-wider mb-2">{{ project.get_category_display }}</p>
+                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-neural-purple transition-colors">{{ project.title }}</h3>
+                    <p class="text-gray-400 text-sm line-clamp-3 mb-6">{{ project.description }}</p>
+                    
+                    <div class="mt-auto flex items-center gap-6 pt-4 border-t border-gray-800">
+                        {% if project.live_link %}
+                        <a href="{{ project.live_link }}" target="_blank" class="flex items-center gap-2 text-neural-purple hover:text-neural-purple-light text-sm font-bold transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Live Demo
+                        </a>
+                        {% endif %}
+                        {% if project.github_link %}
+                        <a href="{{ project.github_link }}" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white text-sm font-bold transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"></path></svg>
+                            Source
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <section id="services" class="scroll-mt-20 max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Services</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">Architecting intelligent solutions from deep learning models to robust web backends.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-card-bg p-10 rounded-xl text-center border border-transparent hover:border-neural-purple transition-all duration-300 group">
+                <div class="text-neural-purple mb-6 flex justify-center group-hover:scale-110 transition-transform">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Predictive Modeling</h3>
+                <p class="text-gray-400 text-sm">Designing and training custom AI models for data-driven forecasting and automation.</p>
+            </div>
+
+            <div class="bg-card-bg p-10 rounded-xl text-center border border-transparent hover:border-neural-purple transition-all duration-300 group">
+                <div class="text-neural-purple mb-6 flex justify-center group-hover:scale-110 transition-transform">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Full-Stack Web App</h3>
+                <p class="text-gray-400 text-sm">Building scalable applications using Django, Node.js, Express, and MongoDB architectures.</p>
+            </div>
+
+            <div class="bg-card-bg p-10 rounded-xl text-center border border-transparent hover:border-neural-purple transition-all duration-300 group">
+                <div class="text-neural-purple mb-6 flex justify-center group-hover:scale-110 transition-transform">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Deep Learning (CNN/RNN)</h3>
+                <p class="text-gray-400 text-sm">Implementing complex neural network layers for computer vision and sequential data tasks.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="scroll-mt-20 max-w-4xl mx-auto px-6 py-20 mb-10">
+        <div class="bg-card-bg p-10 rounded-2xl border border-gray-800 shadow-2xl">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-bold mb-4">Let's Connect</h2>
+                <p class="text-gray-400">Have a project in mind or want to collaborate? Send me a message.</p>
+            </div>
+        
+            <form method="POST" action="{% url 'home' %}#contact" class="space-y-6">
+                {% csrf_token %}
+            
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+                        <input type="text" name="name" required class="w-full bg-dark-bg border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neural-purple focus:ring-1 focus:ring-neural-purple transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Your Email</label>
+                        <input type="email" name="email" required class="w-full bg-dark-bg border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neural-purple focus:ring-1 focus:ring-neural-purple transition-all">
+                    </div>
+                </div>
+            
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                    <textarea name="message" rows="5" required class="w-full bg-dark-bg border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neural-purple focus:ring-1 focus:ring-neural-purple transition-all"></textarea>
+                </div>
+            
+                <button type="submit" class="w-full bg-neural-purple hover:bg-neural-purple-light text-white font-bold py-4 rounded-lg transition-all shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-[#121212] border-t border-gray-800 py-10 mt-20">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <!-- Left: Brand & Copyright -->
+            <div class="text-center md:text-left">
+                                <a href="#home" class="text-2xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-neural-purple to-neural-purple-light">
+                    ASHISH.DEV
+                </a>
+                <p class="text-gray-500 text-sm mt-2">© 2026 Ashish Kumar Yadav. All rights reserved.</p>
+            </div>
+            
+            <!-- Right: Contact & Socials -->
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <!-- Email -->
+                <a href="mailto:ashishkumaryadav12112005@gmail.com" class="text-gray-400 hover:text-neural-purple text-sm font-medium transition-colors">
+                    ashishkumaryadav12112005@gmail.com
+                </a>
+                
+                <!-- Separator -->
+                <span class="hidden md:block text-gray-700">|</span>
+                
+                <!-- Phone (Defaulted to India country code) -->
+                <a href="tel:+916390330118" class="text-gray-400 hover:text-neural-purple text-sm font-medium transition-colors">
+                    +91 6390330118
+                </a>
+                
+                <!-- Separator -->
+                <span class="hidden md:block text-gray-700">|</span>
+
+                <!-- LinkedIn Icon -->
+                <a href="https://www.linkedin.com/in/ashish-kumar-yadav-5638ba306?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="text-gray-400 hover:text-neural-purple transition-colors transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script>
+
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        // 2. Remove the #hash from the URL if it exists, then jump to top
+        window.onload = function() {
+            if (window.location.hash) {
+                history.replaceState(null, null, window.location.pathname);
+            }
+            window.scrollTo(0, 0);
+        };
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 1. Reset all buttons to unselected colors
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-neural-purple', 'text-white', 'shadow-md');
+                        b.classList.add('bg-card-bg', 'text-gray-400');
+                    });
+
+                    // 2. Highlight the button you just clicked
+                    btn.classList.remove('bg-card-bg', 'text-gray-400');
+                    btn.classList.add('bg-neural-purple', 'text-white', 'shadow-md');
+
+                    // 3. Get the filter value (e.g., 'HACK' or 'all')
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    // 4. Show or hide cards based on their category
+                    projectCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || cardCategory === filterValue) {
+                            card.style.display = 'block'; // Show it
+                        } else {
+                            card.style.display = 'none';  // Hide it
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
