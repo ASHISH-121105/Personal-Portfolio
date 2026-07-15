@@ -1,9 +1,20 @@
 from django.db import models
 
+
 class Skill(models.Model):
     name = models.CharField(max_length=50)
     proficiency_percentage = models.IntegerField(help_text="Enter a number between 0 and 100")
     
+    def __str__(self):
+        return self.name
+    
+class Category(models.Model):
+    name = models.CharField(max_length=50) # e.g., "Generative AI"
+    code = models.CharField(max_length=10) # e.g., "GENAI"
+
+    class Meta:
+        verbose_name_plural = "Categories" # Fixes spelling in Admin panel
+
     def __str__(self):
         return self.name
 

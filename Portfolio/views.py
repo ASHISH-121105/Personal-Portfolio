@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Skill, Project, Experience, ContactMessage
+from .models import Skill, Project, Experience, ContactMessage, Category
 
 def home(request):
     if request.method == "POST":
@@ -18,6 +18,7 @@ def home(request):
     skills = Skill.objects.all()
     projects = Project.objects.all().order_by('-id')
     experiences = Experience.objects.all().order_by('-id')
+    categories = Category.objects.all()
     
     total_projects = projects.count()
 
@@ -29,5 +30,6 @@ def home(request):
         'experiences': experiences,
         'total_projects': total_projects,
         'total_hackathons': total_hackathons,
+        'categories': categories,
     }
     return render(request, 'index.html', context)

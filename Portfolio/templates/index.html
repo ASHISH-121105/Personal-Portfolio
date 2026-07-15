@@ -232,14 +232,17 @@
         
         <div class="flex justify-center flex-wrap gap-4 mb-16">
             <button class="filter-btn bg-neural-purple text-white px-6 py-2 rounded-md font-medium shadow-md transition-colors" data-filter="all">All</button>
-            <button class="filter-btn bg-card-bg text-gray-400 hover:text-white px-6 py-2 rounded-md font-medium transition-colors" data-filter="DL">AI, ML & DL</button>
-            <button class="filter-btn bg-card-bg text-gray-400 hover:text-white px-6 py-2 rounded-md font-medium transition-colors" data-filter="WEB">Full-Stack Web</button>
-            <button class="filter-btn bg-card-bg text-gray-400 hover:text-white px-6 py-2 rounded-md font-medium transition-colors" data-filter="HACK">Hackathons</button>
+            
+            {% for category in categories %}
+            <button class="filter-btn bg-card-bg text-gray-400 hover:text-white px-6 py-2 rounded-md font-medium transition-colors" data-filter="{{ category.code }}">
+                {{ category.name }}
+            </button>
+            {% endfor %}
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% for project in projects %}
-            <div class="project-card bg-card-bg rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] border border-transparent transition-all duration-300" data-category="{{ project.category }}">
+            <div class="project-card bg-card-bg rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] border border-transparent transition-all duration-300" data-category="{% for cat in project.categories.all %}{{ cat.code }} {% endfor %}">
                 
                 <div class="h-64 bg-gray-800 relative flex justify-center items-center border-b border-gray-700">
                     {% if project.image %}
@@ -250,7 +253,11 @@
                 </div>
                 
                 <div class="p-6 flex flex-col h-full">
-                    <p class="text-neural-purple text-xs font-bold uppercase tracking-wider mb-2">{{ project.get_category_display }}</p>
+                    <p class="text-neural-purple text-xs font-bold uppercase tracking-wider mb-2">
+                        {% for cat in project.categories.all %}
+                            {{ cat.name }}{% if not forloop.last %} &bull; {% endif %}
+                        {% endfor %}
+                    </p>
                     <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-neural-purple transition-colors">{{ project.title }}</h3>
                     <p class="text-gray-400 text-sm line-clamp-3 mb-6">{{ project.description }}</p>
                     
@@ -405,10 +412,10 @@
                     projectCards.forEach(card => {
                         const cardCategory = card.getAttribute('data-category');
                         
-                        if (filterValue === 'all' || cardCategory === filterValue) {
-                            card.style.display = 'block';
+                        if (filterValue === 'all' || cardCategory.includes(filterValue)) {
+                            card.style.display = 'block'; 
                         } else {
-                            card.style.display = 'none';
+                            card.style.display = 'none';  
                         }
                     });
                 });
