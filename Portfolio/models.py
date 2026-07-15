@@ -19,14 +19,9 @@ class Category(models.Model):
         return self.name
 
 class Project(models.Model):
-    CATEGORY_CHOICES = (
-        ('DL', 'Deep Learning'),
-        ('WEB', 'Full-Stack Web'),
-        ('HACK', 'Hackathon'),
-    )
     title = models.CharField(max_length=150)
     description = models.TextField()
-    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
+    categories = models.ManyToManyField(Category, related_name='projects')
     # Allows you to upload project screenshots later
     image = models.ImageField(upload_to='portfolio_images/', blank=True, null=True) 
     github_link = models.URLField(blank=True, null=True)
