@@ -9,10 +9,8 @@ def home(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
         
-        # Save it to the database
         ContactMessage.objects.create(name=name, email=email, message=message)
         
-        # We use redirect to clear the form so refreshing doesn't resubmit
         return redirect('home')
 
     skills = Skill.objects.all()
@@ -22,7 +20,7 @@ def home(request):
     
     total_projects = projects.count()
 
-    total_hackathons = projects.filter(category='HACK').count()
+    total_hackathons = projects.filter(categories__code='HACK').count()
 
     context = {
         'skills': skills,
