@@ -22,12 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-mooxv)3hp8_@9h%n-3l6%^tur)3kf%qwku#yt4^9(fe9w2srpx"
-
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-mooxv)3hp8_@9h%n-3l6%^tur)3kf%qwku#yt4^9(fe9w2srpx')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ashish-personal-portfolio.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -130,3 +129,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CSRF_TRUSTED_ORIGINS = ['https://ashish-personal-portfolio.onrender.com']
