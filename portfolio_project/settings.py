@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    'cloudinary_storage',
     "django.contrib.staticfiles",
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -117,13 +119,28 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# ==========================================
+# STATIC FILES (CSS, JavaScript, Base Images)
+# ==========================================
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# ==========================================
+# MEDIA FILES (User Uploads & Admin Images)
+# ==========================================
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# Note: MEDIA_ROOT is removed because we are routing to Cloudinary instead of the local disk.
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUD_NAME', 'your_local_cloud_name'),
+    'API_KEY': os.environ.get('API_KEY', 'your_local_api_key'),
+    'API_SECRET': os.environ.get('API_SECRET', 'your_local_api_secret'),
+}
+
+# Tell Django to use Cloudinary for all media uploads
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
